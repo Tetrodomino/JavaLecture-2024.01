@@ -38,7 +38,7 @@ public class Ex01_operation {
 		
 		// 삼항연산자 ? : javascript, C언어와 사용법 동일
 		// 성적이 70점 이상이면 합격, 그렇지 않으면 불합격
-		int point = (int) ( 61 * Math.random() ) + 40;
+		int point = (int) ( 61 * Math.random() ) + 40; // 40 ~ 100 점 중 랜덤 생성
 		char grade = point >= 70 ? '급' : '낙';
 		System.out.printf("%d : %c%n", point, grade);
 	}
