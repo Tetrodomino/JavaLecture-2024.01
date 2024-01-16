@@ -40,7 +40,7 @@ public class Ex03_TypeConversion {
 		 */
 		long k = a + b + c; // 제일 크기가 큰 long 쪽으로 형변환
 		double l = d + e; // 제일 크기가 큰 double 쪽으로 형변환
-		double m = a / b; // int / int의 결과에 소숫점이 있으면 double로 전환
+		double m = a / b; // int / int는 기본적으로 int가 되어 소숫점이 잘림
 		
 		System.out.println("k: " + k + ", l: " + l + ", m: " + m);
 	}
