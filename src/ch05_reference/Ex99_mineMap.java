@@ -101,7 +101,7 @@ public class Ex99_mineMap {
 			}
 		}
 		
-		if (count > 0)
+		if (count >= 0)
 			c = (char)(count + '0');
 		return c;
 	}
