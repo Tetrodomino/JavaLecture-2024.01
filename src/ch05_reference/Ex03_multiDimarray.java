@@ -12,7 +12,6 @@ public class Ex03_multiDimarray {
 		int score[][] = {{80, 90, 70}, {85, 88, 72} };
 		System.out.println(Arrays.toString(score));
 		
-		
 		// 인덱싱
 		System.out.println(score[0][0] + ", " + score[1][1]);
 		

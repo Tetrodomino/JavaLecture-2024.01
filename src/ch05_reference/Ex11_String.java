@@ -15,6 +15,12 @@ public class Ex11_String {
 		
 		String str4 = "문자열";
 		System.out.println(str2 == str4); // str2와 str4가 가리키는 곳이 동일
+		
+		Person james = new Person("제임스", 29, "프로그래머");
+		Person maria = new Person("마리아", 23, "학생");
+		
+		System.out.println(james); // Person 내의 toString이 자동으로 작동해서 출력됨
+		System.out.println(maria);
 	}
 
 }
