@@ -76,6 +76,8 @@ public class Ex99_example {
 	}
 	
 	static void Example5 () {
+		int count = 0;
+		
 		for (int i = 0; i < 5; i++)
 		{
 			for (int j = 0; j < 3; j++)
@@ -86,8 +88,11 @@ public class Ex99_example {
 				if (j == 1)
 					break;
 				System.out.println("A");
+				count++;
 			}
 		}
+		
+		System.out.println(count + "회");
 	}
 
 }
