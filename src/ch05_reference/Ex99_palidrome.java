@@ -6,7 +6,7 @@ public class Ex99_palidrome {
 		String numStr = "";
 		int max = 0;
 		
-		for (int i = 0; i <= 999; i++)
+		for (int i = 100; i <= 999; i++)
 		{
 			for (int j = i; j <= 999; j++)
 			{

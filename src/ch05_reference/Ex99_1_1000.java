@@ -1,5 +1,7 @@
 package ch05_reference;
 
+import java.util.Arrays;
+
 public class Ex99_1_1000 {
 	public static void main(String[] args) {
 		
@@ -16,5 +18,17 @@ public class Ex99_1_1000 {
 			String inum = num.replaceAll("[^" + i + "]", "");
 			System.out.println(i + ": " + inum.length() +"회");
 		}
+		
+		
+		// 배열을 사용
+		int[] count = new int[10];
+		for (int i = 0; i < num.length(); i++)
+		{
+			char n = num.charAt(i);
+			int numValue = n - '0';
+			count[numValue]++;
+		}
+		
+		System.out.println(Arrays.toString(count));
 	}
 }
