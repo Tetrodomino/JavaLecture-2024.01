@@ -79,7 +79,7 @@ public class Interpark {
 	@Override
 	public String toString() {
 		return "Interpark [rank=" + rank + ", title=" + title + ", author=" + author + ", translator=" + translator
-				+ ", company=" + company + ", price=" + price + "]";
+				+ ", company=" + company + ", price=" + String.format("%,d", price) + "]"; // 가격에 천 단위 구분 기호 넣기
 	}
 	
 	
