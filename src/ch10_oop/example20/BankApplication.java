@@ -35,8 +35,9 @@ public class BankApplication {
 			else
 			{
 				run = false;
+				System.out.println("프로그램 종료");
 			}
-			System.out.println("프로그램 종료");
+			
 		}
 	}
 	
@@ -58,7 +59,7 @@ public class BankApplication {
 		{
 			System.out.println("결과: 허용되지 않는 액수입니다.");
 			return;
-		}
+		} 
 		
 		for (int i = 0; i < 100; i++) 
 		{
@@ -92,7 +93,7 @@ public class BankApplication {
 			if (accountArray[i] == null)
 				break;
 			else
-				System.out.println(accountArray[i].toString());
+				System.out.printf("%-9s %6s \t %d\n", accountArray[i].getAno(), accountArray[i].getOwner(), accountArray[i].getBalance());
 		}
 	}
 	
@@ -144,7 +145,7 @@ public class BankApplication {
 		System.out.print("계좌번호: ");
 		String ano = scan.nextLine();
 		
-		int check = -1;
+//		int check = -1;
 				
 		Account account1 = findAccount(ano);
 		if (account1 == null)
@@ -152,18 +153,18 @@ public class BankApplication {
 			System.out.println("결과: 없는 계좌번호입니다.");
 			return;
 		}
-		for (int i = 0; i < 100; i++)
-		{
-			if (accountArray[i] != null)
-			{		
-				Account account = accountArray[i];
-				if (ano.equals(account.getAno()))
-				{
-					check = i;
-					break;
-				}
-			}
-		}
+//		for (int i = 0; i < 100; i++)
+//		{
+//			if (accountArray[i] != null)
+//			{		
+//				Account account = accountArray[i];
+//				if (ano.equals(account.getAno()))
+//				{
+//					check = i;
+//					break;
+//				}
+//			}
+//		}
 		
 		System.out.print("출금액: ");
 		int balance = Integer.parseInt(scan.nextLine());
@@ -173,13 +174,14 @@ public class BankApplication {
 			System.out.println("결과: 허용되지 않은 행동입니다.");
 			return;
 		}
-		else if (balance > accountArray[check].getBalance())
+		else if (balance > account1.getBalance())
 		{
 			System.out.println("결과: 예금액을 초과했습니다.");
 			return;
 		}
 		
-		accountArray[check].setBalance(accountArray[check].getBalance() - balance);
+		account1.setBalance(account1.getBalance() - balance); // 굳이 몇 번째인지 안 찾아도 무방
+		//accountArray[check].setBalance(accountArray[check].getBalance() - balance);
 		System.out.println("결과: 출금이 성공되었습니다.");
 	}
 	
