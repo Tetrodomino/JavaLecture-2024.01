@@ -7,6 +7,7 @@ public class CashCardMain {
 	public static void main(String[] args) {
 
 		CashCard busCard = new CashCard(10000, 15);
+		Scanner scan = new Scanner(System.in);
 		int index = 1;
 		
 		while (index > 0)
@@ -19,14 +20,11 @@ public class CashCardMain {
 			System.out.println("4: 카드 정보 확인");
 			System.out.print("행동 입력: ");
 			
-			Scanner scan = new Scanner(System.in);
-			
 			index = Integer.parseInt(scan.nextLine());
 			
 			if (index == 1)
 			{
 				System.out.print("충전할 금액 입력: ");
-				Scanner scan2 = new Scanner(System.in);
 				int cash = index = Integer.parseInt(scan.nextLine());
 				
 				busCard.charge(cash);
@@ -44,7 +42,6 @@ public class CashCardMain {
 			else if (index == 3)
 			{
 				System.out.print("새 나이 입력: ");
-				Scanner scan2 = new Scanner(System.in);
 				int age = index = Integer.parseInt(scan.nextLine());
 				
 				busCard.setAge(age);
@@ -55,6 +52,8 @@ public class CashCardMain {
 				System.out.println(busCard.toString());
 			}
 		}
+		
+		scan.close();
 	}
 
 }

@@ -4,6 +4,7 @@ public class Account {
 	private String ano;
 	private String owner;
 	private int balance;
+	private int isDeleted; // 1일 경우 삭제된 상태
 	
 	public Account() {}
 	
@@ -11,6 +12,13 @@ public class Account {
 		this.ano = ano;
 		this.owner = owner;
 		this.balance = balance;
+	}
+
+	public Account(String ano, String owner, int balance, int isDeleted) {
+		this.ano = ano;
+		this.owner = owner;
+		this.balance = balance;
+		this.isDeleted = isDeleted;
 	}
 
 	public String getAno() {
@@ -35,6 +43,14 @@ public class Account {
 
 	public void setBalance(int balance) {
 		this.balance = balance;
+	}
+
+	public int getIsDeleted() {
+		return isDeleted;
+	}
+
+	public void setIsDeleted(int isDeleted) {
+		this.isDeleted = isDeleted;
 	}
 
 	@Override

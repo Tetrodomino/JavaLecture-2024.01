@@ -58,8 +58,13 @@ public class AccountServiceArrayimpl implements AccountService{
 		
 		for (int i = 0; i < 100; i++)
 		{
+
+			
 			if (accountArray[i] == null)
 				break;
+			// 해당 계좌가 삭제된 상태면 출력하지 않음
+			else if (accountArray[i].getIsDeleted() == AccountService.DELETED)
+				continue;
 			else
 				System.out.printf("%-9s %6s \t %d\n", accountArray[i].getAno(), accountArray[i].getOwner(), accountArray[i].getBalance());
 		}
@@ -147,7 +152,7 @@ public class AccountServiceArrayimpl implements AccountService{
 			if (accountArray[i] != null)
 			{		
 				Account account = accountArray[i];
-				if (ano.equals(account.getAno()))
+				if (ano.equals(account.getAno()) && account.getIsDeleted() != AccountService.DELETED)
 				{
 					return account;
 				}
@@ -155,6 +160,26 @@ public class AccountServiceArrayimpl implements AccountService{
 		}
 		
 		return null;
+	}
+
+	// 계좌 삭제하는 함수
+	@Override
+	public void delete() {
+		System.out.println("------------");
+		System.out.println("삭제");
+		System.out.println("------------");
+		
+		System.out.print("계좌번호: ");
+		String ano = scan.nextLine();
+		Account account = findAccount(ano);
+		if (account == null)
+		{
+			System.out.println("결과: 없는 계좌번호입니다.");
+			return;
+		}
+		
+		// AccountService의 DELETED 호출하여 setIsDeleted로 삭제된 상태를 나타내는 필드에 대입
+		account.setIsDeleted(AccountService.DELETED);
 	}
 
 }
