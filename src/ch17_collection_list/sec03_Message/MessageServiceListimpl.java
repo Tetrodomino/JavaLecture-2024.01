@@ -3,9 +3,10 @@ package ch17_collection_list.sec03_Message;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Scanner;
 
 public class MessageServiceListimpl implements MessageService{
-	
+	private static Scanner scan = new Scanner(System.in);
 	List<Message> message = new ArrayList<Message>();
 	
 	public MessageServiceListimpl() {
@@ -57,30 +58,48 @@ public class MessageServiceListimpl implements MessageService{
 
 	@Override
 	public void insertMessage(Message message_) {
+		int index = message.size();
+		message_.setMid(index);
+		
 		message.add(message_);
 	}
 
 	@Override
 	public void updateMessage(Message message_) {
 		
-		int count = -1;
+		System.out.println("====================================");
+		System.out.println("신규 번호▽");
+		System.out.println("------------------------------------");
+		int mid2 = Integer.parseInt(scan.nextLine());		
+		System.out.println("====================================");
+		System.out.println("기존 메시지▽");
+		System.out.println("------------------------------------");
+		System.out.println(message_.getContent());
+		System.out.println("====================================");
+		System.out.println("신규 메시지 작성▽");
+		System.out.println("------------------------------------");
+		String content = scan.nextLine();
+		System.out.println("====================================");
+		
+		int count = message.indexOf(message_);
+		message.remove(message_);
+		
+		message_.setMid(mid2);
+		message_.setModTime(LocalDateTime.now());
+		message_.setContent(content);
+		
+		int count2 = 0;
 		for (Message m: message)
 		{
-			if (m.getMid() == message_.getMid())
-			{
-				count++;
-				break;
+			if (m.getMid() >= mid2)
+			{	
+				message.add(count2, message_);
+				return;
 			}
+			
+			count2++;
 		}
-		
-		if (count < 0)
-		{
-			System.out.println("찾는 번호의 mid가 없습니다");
-			return;
-		}
-		
-		message.remove(findByMid(message_.getMid()));
-		message.add(count, message_);
+		message.add(message_);
 	}
 
 	@Override

@@ -92,26 +92,6 @@ public class MessageMain {
 				}
 				else
 				{
-					System.out.println("====================================");
-					System.out.println("신규 번호▽");
-					System.out.println("------------------------------------");
-					mid = Integer.parseInt(scan.nextLine());
-					System.out.println("====================================");
-					
-					System.out.println("====================================");
-					System.out.println("기존 메시지▽");
-					System.out.println("------------------------------------");
-					System.out.println(message_.getContent());
-					System.out.println("====================================");
-					System.out.println("신규 메시지 작성▽");
-					System.out.println("------------------------------------");
-					String content = scan.nextLine();
-					System.out.println("====================================");
-					
-					message_.setMid(mid);
-					message_.setModTime(LocalDateTime.now());
-					message_.setContent(content);
-					
 					messageService.updateMessage(message_);
 				}
 			}
