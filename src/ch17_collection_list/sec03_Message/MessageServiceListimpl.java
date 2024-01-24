@@ -59,7 +59,8 @@ public class MessageServiceListimpl implements MessageService{
 	@Override
 	public void insertMessage(Message message_) {
 		int index = message.size();
-		message_.setMid(index);
+		Message Lastmessage = message.get(index - 1);
+		message_.setMid(Lastmessage.getMid() + 1);
 		
 		message.add(message_);
 	}
