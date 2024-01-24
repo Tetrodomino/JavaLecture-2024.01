@@ -1,4 +1,4 @@
-package ch17_collection_list.sec03_MemberArray;
+package ch17_collection_list.sec03_Message;
 
 import java.time.LocalDateTime;
 
@@ -49,8 +49,9 @@ public class Message {
 		this.writer = writer;
 	}
 
-	public LocalDateTime getModTime() {
-		return modTime;
+	public String getModTime() {
+		String now = this.modTime.toString();
+		return now.substring(0, 10) + ", " + now.substring(11, 19);
 	}
 
 	public void setModTime(LocalDateTime modTime) {

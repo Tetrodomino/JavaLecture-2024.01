@@ -1,5 +1,7 @@
 package ch12_interface.Example_message;
 
+import java.util.List;
+
 public interface MessageService {
 	
 	int DELETED = 1;

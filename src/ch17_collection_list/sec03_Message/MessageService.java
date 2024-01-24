@@ -1,4 +1,4 @@
-package ch17_collection_list.sec03_MemberArray;
+package ch17_collection_list.sec03_Message;
 
 import java.util.List;
 
@@ -17,4 +17,6 @@ public interface MessageService {
 	void updateMessage(Message message);
 	
 	void deleteMessage(int mid);
+
+	void printMessage(List<Message> message_);
 }
