@@ -1,4 +1,4 @@
-package ch17_collection_list.sec03_Message;
+package ch17_collection.part1_list.sec03_Message;
 
 import java.util.List;
 

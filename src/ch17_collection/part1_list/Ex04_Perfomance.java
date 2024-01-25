@@ -1,4 +1,4 @@
-package ch17_collection_list;
+package ch17_collection.part1_list;
 
 import java.util.ArrayList;
 import java.util.LinkedList;
