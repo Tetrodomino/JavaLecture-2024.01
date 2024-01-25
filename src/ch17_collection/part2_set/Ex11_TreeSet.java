@@ -3,7 +3,7 @@ package ch17_collection.part2_set;
 import java.util.Set;
 import java.util.TreeSet;
 
-public class Ex11_TresSet {
+public class Ex11_TreeSet {
 	public static void main(String[] args) {
 		Set<Integer> set = new TreeSet<Integer>();
 		set.add(10);
