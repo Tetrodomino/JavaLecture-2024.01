@@ -53,7 +53,7 @@ public class MessageMain {
 			{
 				List<Message> ms = messageService.getMessageListAll();
 				
-				messageService.printMessage(ms);
+				printMessage(ms);
 			}
 			else if (selectNo == 3)
 			{
@@ -62,7 +62,7 @@ public class MessageMain {
 				
 				List<Message> ms = messageService.getMessageListByWriter(writer);
 				
-				messageService.printMessage(ms);
+				printMessage(ms);
 			}
 			else if (selectNo == 4)
 			{
@@ -83,7 +83,6 @@ public class MessageMain {
 			{
 				System.out.print("찾을 메시지 번호 입력: ");
 				int mid = Integer.parseInt(scan.nextLine());
-				
 				Message message_ = messageService.findByMid(mid);
 				
 				if (message_ == null)
@@ -92,6 +91,26 @@ public class MessageMain {
 				}
 				else
 				{
+					System.out.println("====================================");
+					System.out.println("신규 번호▽ (기존: " + mid + ")");
+					System.out.println("------------------------------------");
+					int mid2 = Integer.parseInt(scan.nextLine());		
+					System.out.println("====================================");
+					System.out.println("기존 메시지▽");
+					System.out.println("------------------------------------");
+					System.out.println(message_.getContent());
+					System.out.println("====================================");
+					System.out.println("신규 메시지 작성▽");
+					System.out.println("------------------------------------");
+					String content = scan.nextLine();
+					System.out.println("====================================");
+					
+					messageService.deleteMessage(mid);
+					
+					message_.setMid(mid2);
+					message_.setModTime(LocalDateTime.now());
+					message_.setContent(content);
+					
 					messageService.updateMessage(message_);
 				}
 			}
@@ -106,7 +125,23 @@ public class MessageMain {
 			{
 				run = false;
 				System.out.println("프로그램 종료");
+				scan.close();
 			}
+		}
+	}
+	
+	public static void printMessage(List<Message> message_)
+	{
+		for (Message m: message_)
+		{
+			System.out.println("====================================");
+			System.out.println("메세지 번호: " + m.getMid());
+			System.out.println("작성 시간: " + m.getModTime());
+			System.out.println("작성자: " + m.getWriter());
+			System.out.println("------------------------------------");
+			System.out.println("메세지 내용▽");
+			System.out.println(m.getContent());
+			System.out.println("====================================");
 		}
 	}
 

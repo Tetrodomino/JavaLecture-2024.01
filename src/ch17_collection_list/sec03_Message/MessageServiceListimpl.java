@@ -3,10 +3,8 @@ package ch17_collection_list.sec03_Message;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Scanner;
 
 public class MessageServiceListimpl implements MessageService{
-	private static Scanner scan = new Scanner(System.in);
 	List<Message> message = new ArrayList<Message>();
 	
 	public MessageServiceListimpl() {
@@ -68,31 +66,10 @@ public class MessageServiceListimpl implements MessageService{
 	@Override
 	public void updateMessage(Message message_) {
 		
-		System.out.println("====================================");
-		System.out.println("신규 번호▽");
-		System.out.println("------------------------------------");
-		int mid2 = Integer.parseInt(scan.nextLine());		
-		System.out.println("====================================");
-		System.out.println("기존 메시지▽");
-		System.out.println("------------------------------------");
-		System.out.println(message_.getContent());
-		System.out.println("====================================");
-		System.out.println("신규 메시지 작성▽");
-		System.out.println("------------------------------------");
-		String content = scan.nextLine();
-		System.out.println("====================================");
-		
-		int count = message.indexOf(message_);
-		message.remove(message_);
-		
-		message_.setMid(mid2);
-		message_.setModTime(LocalDateTime.now());
-		message_.setContent(content);
-		
 		int count2 = 0;
 		for (Message m: message)
 		{
-			if (m.getMid() >= mid2)
+			if (m.getMid() >= message_.getMid())
 			{	
 				message.add(count2, message_);
 				return;
@@ -107,21 +84,4 @@ public class MessageServiceListimpl implements MessageService{
 	public void deleteMessage(int mid) {
 		message.remove(findByMid(mid));
 	}
-	
-	@Override
-	public void printMessage(List<Message> message_)
-	{
-		for (Message m: message_)
-		{
-			System.out.println("====================================");
-			System.out.println("메세지 번호: " + m.getMid());
-			System.out.println("작성 시간: " + m.getModTime());
-			System.out.println("작성자: " + m.getWriter());
-			System.out.println("------------------------------------");
-			System.out.println("메세지 내용▽");
-			System.out.println(m.getContent());
-			System.out.println("====================================");
-		}
-	}
-
 }
