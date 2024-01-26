@@ -18,6 +18,7 @@ public class Exercise {
 		Elements lis = doc.select(".rankBestContentList > ol > li");
 		System.out.println(lis.size());
 		
+		
 		Element li = lis.get(9);
 		String title = li.selectFirst(".itemName").text().strip();
 		String author = li.selectFirst(".author").text().strip();
