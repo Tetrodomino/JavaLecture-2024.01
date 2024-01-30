@@ -12,7 +12,7 @@ public class CsvMain {
 	public static void main(String[] args) throws IOException {
 		// 인터파크 사이트의 베스트셀러 페이지의 정보를 tsv 파일로 저장하기
 		
-		// 인터파크 사이트 정보를 담을 인터페이스 생성
+		// 인터파크 사이트 베스트셀러 정보를 담아줄 클래스 생성
 		InterparkBookService interparkbookservice = new InterparkBookService();
 		CsvUtil csvUtil = new CsvUtilImpl();
 		

@@ -30,7 +30,7 @@ public class Exercise {
 		String artist = tr.selectFirst(".ellipsis.rank02 > a").text().strip();
 		String album = tr.selectFirst(".ellipsis.rank03 > a").text().strip();
 		String src = tr.selectFirst("td:nth-child(4) > div > a > img").attr("src");
-		
+		System.out.println(rank + ", " + title + ", " + artist + ", " + album + ", " + src);
 	}
 
 }
