@@ -203,3 +203,18 @@ SELECT l.name, r.`Language` FROM country l
 
 # 3개의 테이블 조인
 # 아시아 대륙에서 인구수가 가장 많은 10 도시에서 사용하는 공식 언어
+SELECT r.name countryname, l.name cityname, l.population pop,o.`language` FROM city l
+	JOIN country r ON l.countrycode=r.code
+	JOIN countrylanguage o ON l.countrycode=o.countrycode
+	WHERE r.continent='Asia' AND o.isofficial ='T'
+	ORDER BY l.population DESC 
+	LIMIT 10;
+
+
+/*
+    1.8 서브쿼리 Sub Query
+*/
+# 국내 도시만으로 새로운 테이블을 만드는 경우
+CREATE TABLE if not exists kcity LIKE city;
+INSERT INTO kcity
+    SELECT * FROM city WHERE countrycode='KOR'; /* kcity에 countrycode가 KOR인 데이터를 모두 집어넣음 */
