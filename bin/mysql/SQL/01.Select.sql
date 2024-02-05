@@ -17,6 +17,7 @@ SELECT 필드명
     JOIN 테이블명
     ON 조인 조건
     WHERE 조회 조건
+    GROUP BY 그룹
     HAVING 그룹 조건
     ORDER BY 필드명 순서
     LIMIT 숫자 OFFSET 숫자;
