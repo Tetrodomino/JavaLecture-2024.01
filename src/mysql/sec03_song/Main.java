@@ -34,8 +34,8 @@ public class Main {
 		System.out.println("────────────────────────────────────");
 
 		// 새로운 데이터 넣기
-		song = new Song("Twice", "cheer up baby cheer up baby");
-		//songDao.insertSong(song);
+		song = new Song("Hipe Boy", "cheer up baby cheer up baby");
+		songDao.insertSong(song);
 		
 		System.out.println("────────────────────────────────────");
 		
