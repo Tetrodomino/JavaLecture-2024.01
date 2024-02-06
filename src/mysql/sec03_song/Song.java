@@ -1,4 +1,4 @@
-package mysql.secEx_song;
+package mysql.sec03_song;
 
 public class Song {
 

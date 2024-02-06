@@ -1,4 +1,4 @@
-package mysql.secEx_song;
+package mysql.sec03_song;
 
 import java.util.List;
 
@@ -13,6 +13,10 @@ public class Main {
 		
 		// title로 데이터 찾기
 		song = songDao.getSongBtTitle("A");
+		System.out.println(song);
+		
+		// title로 데이터 찾기(검색)
+		song = songDao.getSongByTitle("별빛");
 		System.out.println(song);
 		
 		System.out.println("────────────────────────────────────");
@@ -42,7 +46,7 @@ public class Main {
 		System.out.println("────────────────────────────────────");
 		
 		// 데이터 삭제
-		songDao.deleteSong(117);
+		//songDao.deleteSong(117);
 		
 		list = songDao.getSongList();
 		list.forEach(x -> System.out.println(x));

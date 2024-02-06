@@ -1,4 +1,4 @@
-package mysql.secEx_song;
+package mysql.sec03_song;
 
 import java.io.FileInputStream;
 import java.sql.Connection;
@@ -91,6 +91,36 @@ public class SongDao {
 			PreparedStatement pstmt = conn.prepareStatement(sql);
 			
 			pstmt.setString(1, title);
+			
+			ResultSet rs = pstmt.executeQuery();
+			
+			while(rs.next()) {
+				song.setSid(rs.getInt(1));
+				song.setTitle(rs.getString(2));
+				song.setLyric(rs.getString(3));				
+			}
+			
+			rs.close();
+			pstmt.close();
+			conn.close();
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+		return song;
+	}
+	
+	public Song getSongByTitle(String title) {
+		Connection conn = myConnection();
+		String sql = "select * from song where title like ?";
+		
+		Song song = new Song();
+		
+		try {
+			PreparedStatement pstmt = conn.prepareStatement(sql);
+			
+			pstmt.setString(1, "%" + title + "%"); // title 앞뒤로 다른 문자열이 붙어도 됨
 			
 			ResultSet rs = pstmt.executeQuery();
 			
