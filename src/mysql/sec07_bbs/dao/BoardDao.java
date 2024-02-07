@@ -83,16 +83,15 @@ public class BoardDao {
 	// field는 제목, 내용, 작성ID 등 검색 옵션
 	// query 값은 검색어
 	public List<Board> getBoardList(String field, String query, int num, int offset) {
-		String sql = "select * from board where ? like ? and isDeleted=0 limit ? offset ?";
+		String sql = "select * from board where " + field + " like ? and isDeleted=0 limit ? offset ?";
 		
 		List<Board> list = new ArrayList<Board>();
 		
 		try {
 			PreparedStatement pstmt = conn.prepareStatement(sql);
-			pstmt.setString(1, field);
-			pstmt.setString(2,"%" + query + "%");
-			pstmt.setInt(3, num);
-			pstmt.setInt(4, offset);
+			pstmt.setString(1,"%" + query + "%");
+			pstmt.setInt(2, num);
+			pstmt.setInt(3, offset);
 			ResultSet rs = pstmt.executeQuery();
 			
 			while (rs.next()) {
