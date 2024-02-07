@@ -10,7 +10,7 @@ public class MessageServiceMysqlImpl implements MessageService{
 	@Override
 	public Message findByMid(int mid) {
 		Message m = msgDao.getMessageByMid(mid);
-		return null;
+		return m;
 	}
 
 	@Override

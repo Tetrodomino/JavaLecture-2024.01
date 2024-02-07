@@ -1,3 +1,4 @@
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 public class lab {
@@ -6,7 +7,9 @@ public class lab {
 
 		LocalDateTime n = LocalDateTime.now();
 		
-		System.out.println(n.toString());
+		LocalDate n2 = LocalDate.now(); 
+		
+		System.out.println(n2.toString());
 	}
 
 }
