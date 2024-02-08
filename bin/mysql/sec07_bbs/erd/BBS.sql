@@ -14,7 +14,6 @@ DROP TABLE IF EXISTS users;
 
 
 /* Create Tables */
-
 CREATE TABLE board
 (
 	bid int NOT NULL AUTO_INCREMENT,

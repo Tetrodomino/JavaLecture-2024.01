@@ -21,7 +21,7 @@ public class UserDao {
 	private Connection conn;
 	
 	public UserDao() {
-		String path = "C:/Workspace/Java/lesson/src/mysql/mysql.properties";
+		String path = "C:/Workspace/Java/lesson/src/mysql/sec07_bbs/mysql.properties";
 		
 		// mysql.properties 파일에서 데이터를 받아오기
 		try {

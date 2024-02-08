@@ -20,7 +20,7 @@ public class ReplyDao {
 	private Connection conn;
 	
 	public ReplyDao() {
-		String path = "C:/Workspace/Java/lesson/src/mysql/mysql.properties";
+		String path = "C:/Workspace/Java/lesson/src/mysql/sec07_bbs/mysql.properties";
 		
 		// mysql.properties 파일에서 데이터를 받아오기
 		try {
@@ -82,7 +82,10 @@ public class ReplyDao {
 	}
 	
 	public List<Reply> getReplyList(int bid) {
-		String sql = "select * from reply where bid=? and isDeleted=0";
+		String sql = "SELECT r.*, u.uname FROM reply r"
+				+ "	JOIN users u ON r.uid=u.uid"
+				+ "	WHERE r.bid=?"
+				+ "	ORDER BY rid;";
 		
 		List<Reply> list = new ArrayList<Reply>();
 		
@@ -99,7 +102,7 @@ public class ReplyDao {
 				time = time.replace(" ", "T");
 				
 				Reply r = new Reply(rs.getInt(1), rs.getString(2), LocalDateTime.parse(time),
-						rs.getString(4), rs.getInt(5));
+						rs.getString(4), rs.getInt(5), rs.getString(6));
 				
 				list.add(r);
 			}
@@ -109,7 +112,6 @@ public class ReplyDao {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		
 		
 		return list;
 	}
@@ -124,12 +126,11 @@ public class ReplyDao {
 			pstmt.setString(2, reply.getUid());
 			pstmt.setInt(3, reply.getBid());
 			
-			ResultSet rs = pstmt.executeQuery();
+			pstmt.executeUpdate();
 			
+			pstmt.close();
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		
-		
 	}
 }
